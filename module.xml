@@ -2,11 +2,11 @@
 <Export generator="Cache" version="25">
   <Document name="objectscript-sample.ZPM">
     <Module>
-      <Name>objectscript-sample</Name>
+      <Name>bondar-restoreui.ZPM</Name>
       <Version>0.0.1</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Name="PackageSample.PKG"/>
+      <Resource Name="bondar.PKG"/>
     </Module>
   </Document>
 </Export>

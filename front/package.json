@@ -1,0 +1,55 @@
+{
+  "name": "primeng-quickstart-cli",
+  "version": "1.0.0-SNAPSHOT",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/primefaces/primeng-quickstart-cli.git"
+  },
+  "dependencies": {
+    "@angular/animations": "~10.0.1",
+    "@angular/common": "~10.0.1",
+    "@angular/compiler": "~10.0.1",
+    "@angular/core": "~10.0.1",
+    "@angular/forms": "~10.0.1",
+    "@angular/platform-browser": "~10.0.1",
+    "@angular/platform-browser-dynamic": "~10.0.1",
+    "@angular/router": "~10.0.1",
+    "primeflex": "2.0.0",
+    "primeicons": "2.0.0",
+    "primeng": "^10.0.0",
+    "rxjs": "~6.5.3",
+    "web-animations-js": "^2.3.2",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.901.0",
+    "@angular/cli": "^10.0.0",
+    "@angular/compiler-cli": "~10.0.1",
+    "@angular/language-service": "^10.0.0",
+    "@angular/cdk": "~9.2.0",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.2",
+    "karma": "~5.1.1",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.9.5"
+  }
+}

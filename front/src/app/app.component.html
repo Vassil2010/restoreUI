@@ -1,0 +1,96 @@
+<div class="card">
+    <p-toast></p-toast>
+    <p-steps [model]="items" [readonly]="false" [(activeIndex)]="activeIndex"></p-steps>
+</div>
+
+<p-card *ngIf="displayDialog=='source'">
+    <p-header>
+        
+    </p-header>
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="fileName" size="100"> 
+        <label for="float-input">full backup file name</label>
+    </span>
+    
+    <ng-template pTemplate="footer">
+        <div class="p-grid p-nogutter p-justify-end">
+            <p-button  label="Next" (onClick)="step2(true)" icon="pi pi-angle-right" iconPos="right" ></p-button>
+        </div>
+    </ng-template>
+</p-card>
+
+<p-card *ngIf="displayDialog=='listdir'">
+    <p-table [value]="directoryListValue" [(selection)]="selectedDirectoryList" dataKey="sourceDir">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th style="width: 2.25em">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th>Source directory</th>
+                <th>Target directory</th>
+                <th>Create directory</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                </td>
+                <td>{{rowData.sourceDir}}</td>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.targetDir">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.targetDir}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="rowData.createDir" binary="true" inputId="binary"></p-checkbox>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <ng-template pTemplate="footer">
+        <div class="p-grid p-nogutter p-justify-end">
+            <p-button label="Previous" (onClick)="step1()" icon="pi pi-angle-left" iconPos="left"></p-button>
+            <p-button label="Next" (onClick)="step3()" icon="pi pi-angle-right" iconPos="right"></p-button>
+        </div>
+    </ng-template>
+</p-card>
+
+<p-card *ngIf="displayDialog=='recovery'">
+    
+    {{step3status}}
+    <ng-template pTemplate="footer">
+        <div class="p-grid p-nogutter p-justify-end">
+            <p-button  label="Previous" (onClick)="step2()" icon="pi pi-angle-left" iconPos="left" ></p-button>
+        </div>
+    </ng-template>
+</p-card>
+
+<!--
+<p-dialog header="Sourse" [(visible)]="displayDialog=='source'" [responsive]="true" showEffect="fade" [modal]="true" [closable]="true" [style]="{'width':'300px'}">
+    <div class="ui-g ui-fluid" *ngIf="car">
+        <div class="ui-g-4"><label for="vin">Vin</label></div>
+        <div class="ui-g-8"><input pInputText id="vin" [(ngModel)]="car.vin" /></div>
+        
+        <div class="ui-g-4"><label for="year">Year</label></div>
+        <div class="ui-g-8"><input pInputText id="year" [(ngModel)]="car.year" /></div>
+        
+        <div class="ui-g-4"><label for="brand">Brand</label></div>
+        <div class="ui-g-8"><input pInputText id="brand" [(ngModel)]="car.brand" /></div>
+        
+        <div class="ui-g-4"><label for="color">Color</label></div>
+        <div class="ui-g-8"><input pInputText id="color" [(ngModel)]="car.color" /></div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-times" (click)="delete()" label="Delete"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+-->

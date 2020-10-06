@@ -12,40 +12,50 @@ import { IrisService } from './services/irisservice';
 })
 export class AppComponent implements OnInit {
 
-    displayDialog: string  = 'source';
+    displayDialog: string  = 'login';
     items: MenuItem[];
     activeIndex: number = 0;
     dataBases: [];
     fileName: string = '/usr/irissys/mgr/Backup/FullDBList_20201004_001.cbk';
+    msgs;
+
     directoryListValue: IDirectoryList[];
     selectedDirectoryList: IDirectoryList[];
     step3status: string = 'The task has not started yet';
     
-    constructor(private irisService: IrisService) { }    
+    constructor(private irisService: IrisService, private messageService:MessageService) { }    
     ngOnInit() {
         this.items = [
+            {label: 'Login', command: (event) => {
+                this.displayDialog = 'login';
+                this.activeIndex = 0;
+            }},
             {label: 'Source', command: (event) => {
                 this.displayDialog = 'source';
-                this.activeIndex = 0;
+                this.activeIndex = 1;
             }},
             {label: 'List of directories to restore', command: (event) => {
                 this.displayDialog = 'listdir';
-                this.activeIndex = 1;
+                this.activeIndex = 2;
             }},
             {label: 'Start recovery', command: (event) => {
                 this.displayDialog = 'startrecovery';
-                this.activeIndex = 2;
+                this.activeIndex = 3;
             }}
         ];
     }
+    step0() {
+        this.displayDialog = 'login';
+        this.activeIndex = 0;
+    }
     step1() {
         this.displayDialog = 'source';
-        this.activeIndex = 0;
+        this.activeIndex = 1;
     }
 
     step2(updateTable = false) {
         this.displayDialog = 'listdir';
-        this.activeIndex = 1;
+        this.activeIndex = 2;
         if (updateTable) {
             this.irisService.getDataBases(this.fileName)
                 .subscribe(data => {
@@ -64,11 +74,14 @@ export class AppComponent implements OnInit {
         
     }
     step3() {
-        //console.log(this.directoryListValue);
-        //console.log(this.selectedDirectoryList);
+        if (!this.selectedDirectoryList) {
+            this.messageService.add({severity:'warn', summary:'Select rows', detail:'check checkboxes'});
+            
+            return;
+        }
 
         this.displayDialog = 'recovery';
-        this.activeIndex = 2;
+        this.activeIndex = 3;
         const a = {
             'restoreDirectoryList': this.selectedDirectoryList,
             'sourceDir': this.fileName 

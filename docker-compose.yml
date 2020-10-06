@@ -11,3 +11,11 @@ services:
       - 53773
     volumes:
       - ./:/irisdev/app
+  web:
+    build:
+      context: front
+      dockerfile: dockerfile-web
+    ports:
+      -80:80
+    volumes: 
+      db:

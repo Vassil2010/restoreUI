@@ -3,6 +3,37 @@
     <p-steps [model]="items" [readonly]="false" [(activeIndex)]="activeIndex"></p-steps>
 </div>
 
+<p-messages [(value)]="msgs"></p-messages>
+
+<p-card *ngIf="displayDialog=='login'">
+    <div class="p-d-flex p-jc-center">
+        <span class="p-float-label p-mt-4" >
+            <input id="float-input" type="text" pInputText [(ngModel)]="irisService.serverhost" size="50"> 
+            <label for="float-input">server host</label>
+        </span>
+    </div>
+    
+    <div class="p-d-flex p-jc-center">
+        
+        <span class="p-float-label p-mt-4" >
+            <input id="float-input" type="text" pInputText [(ngModel)]="irisService.serverlogin" size="50"> 
+            <label for="float-input">login</label>
+        </span>
+    </div>    
+    <div class="p-d-flex p-jc-center">
+        <span class="p-float-label p-mt-4">
+            <input id="float-input" type="password" pInputText [(ngModel)]="irisService.serverpassword" size="50"> 
+            <label for="float-input">password</label>
+        </span>
+    </div>
+    
+    <ng-template pTemplate="footer">
+        <div class="p-grid p-nogutter p-justify-end">
+            <p-button  label="Next" (onClick)="step1()" icon="pi pi-angle-right" iconPos="right" ></p-button>
+        </div>
+    </ng-template>
+</p-card>
+
 <p-card *ngIf="displayDialog=='source'">
     <p-header>
         
@@ -13,8 +44,13 @@
     </span>
     
     <ng-template pTemplate="footer">
-        <div class="p-grid p-nogutter p-justify-end">
-            <p-button  label="Next" (onClick)="step2(true)" icon="pi pi-angle-right" iconPos="right" ></p-button>
+        <div class="p-justify-end p-d-flex p-jc-between">
+            <div >
+                <p-button label="Previous" (onClick)="step0()" icon="pi pi-angle-left" iconPos="left"></p-button>
+            </div>
+            <div >
+                <p-button  label="Next" (onClick)="step2(true)" icon="pi pi-angle-right" iconPos="right" ></p-button>
+            </div>
         </div>
     </ng-template>
 </p-card>
@@ -54,7 +90,7 @@
         </ng-template>
     </p-table>
     <ng-template pTemplate="footer">
-        <div class="p-grid p-nogutter p-justify-end">
+        <div class="p-justify-end p-d-flex p-jc-between">
             <p-button label="Previous" (onClick)="step1()" icon="pi pi-angle-left" iconPos="left"></p-button>
             <p-button label="Next" (onClick)="step3()" icon="pi pi-angle-right" iconPos="right"></p-button>
         </div>
@@ -62,10 +98,11 @@
 </p-card>
 
 <p-card *ngIf="displayDialog=='recovery'">
-    
+    <div class="p-text-center p-text-bold">
     {{step3status}}
+    </div>
     <ng-template pTemplate="footer">
-        <div class="p-grid p-nogutter p-justify-end">
+        <div class="p-justify-start p-d-flex">
             <p-button  label="Previous" (onClick)="step2()" icon="pi pi-angle-left" iconPos="left" ></p-button>
         </div>
     </ng-template>

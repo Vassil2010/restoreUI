@@ -13,6 +13,8 @@ import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { AppComponent } from './app.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 
@@ -33,6 +35,8 @@ import { CheckboxModule } from 'primeng/checkbox';
         ToastModule,
         CardModule,
         CheckboxModule,
+        MessagesModule,
+        MessageModule,
         RouterModule.forRoot([
             {path:'',component: AppComponent}
               ])

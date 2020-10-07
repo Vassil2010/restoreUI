@@ -1,24 +1,36 @@
-UI for restoring databases from backup online
+UI for restoring databases from online backup
 
-## Prerequisites
-Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
 ## Installation 
+
+### install using zpm
+
+USER> zpm
+zpm: USER>install restoreui
+
+### install using docker
+
+Make sure you have [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
 Clone/git pull the repo into any local directory
 
 ```
-$ git clone https://github.com/intersystems-community/objectscript-docker-template.git
+$ git clone https://github.com/Vassil2010/restoreUI.git
 ```
 
 Open the terminal in this directory and run:
 
 ```
-$ docker-compose build
-```
-
-3. Run the IRIS container with your project:
-
-```
 $ docker-compose up -d
 ```
+
+## UI
+
+The UI is available here:
+```
+http://localhost:52773/restoreui/index.html
+```
+
+## Demo
+
+![Demo](/misc/demo.mp4)

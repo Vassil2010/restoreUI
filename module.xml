@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="objectscript-sample.ZPM">
+  <Document name="restoreui.ZPM">
     <Module>
-      <Name>bondar-restoreui.ZPM</Name>
-      <Version>0.0.1</Version>
+      <Name>restoreui</Name>
+      <Version>1.0.1</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Name="bondar.PKG"/>
+      <Resource Directory="cls" Name="bondar.PKG"/>
+
+       <CSPApplication
+        Url="/restoreUI"
+        DeployPath="${cspdir}/restoreUI"
+        SourcePath="/front/dist"
+        Directory="/restoreUI" 
+        ServeFiles="1"
+        Recurse="1"
+        CookiePath="/restoreUI"
+        UseCookies="2"
+        MatchRoles=":${dbrole}"
+        PasswordAuthEnabled="0"
+        UnauthenticatedEnabled="1"
+        UseSessionCookie="2"
+       />
+
+       <CSPApplication 
+        Url="/restoreui-rest"
+        Path="/src/csp"
+        Recurse="1"
+        Directory="${cspdir}/restoreui-rest" 
+        MatchRoles=":%All"
+        PasswordAuthEnabled="1"
+        UnauthenticatedEnabled="0"
+        DispatchClass="bondar.restoreUI.Rest"
+        ServeFiles="1"
+        CookiePath="/restoreui-rest"
+        UseCookies="2"
+        UseSessionCookie="2"
+       />
+
     </Module>
   </Document>
 </Export>

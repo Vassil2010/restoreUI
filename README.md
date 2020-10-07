@@ -33,4 +33,4 @@ http://localhost:52773/restoreui/index.html
 
 ## Demo
 
-![Demo](/misc/demo.mp4)
+![Demo](/misc/demo.gif)

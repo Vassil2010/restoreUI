@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "restoreui": {
+    "csp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -122,7 +122,7 @@
       }
     }
   },
-  "defaultProject": "restoreui",
+  "defaultProject": "csp",
   "cli": {
     "analytics": false
   }

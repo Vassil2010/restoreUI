@@ -60,7 +60,8 @@ export class AppComponent implements OnInit {
             this.irisService.getDataBases(this.fileName)
                 .subscribe(data => {
                     
-                    if (data.status == 'OK') {
+                    
+                    if ('OK'.indexOf(data.status) !== -1) {
                         this.directoryListValue = data.databases.map(item=> {
                             const line  = {} as IDirectoryList;
                             line.sourceDir = item.directory;
@@ -68,6 +69,8 @@ export class AppComponent implements OnInit {
                             line.createDir = true;
                             return line;
                         })
+                    } else {
+                        this.messageService.add({severity:'warn', summary:'ERROR', detail: data.status});                
                     }
                 });
             }
@@ -90,7 +93,7 @@ export class AppComponent implements OnInit {
         this.irisService.restore(a)
         .subscribe(data => {
             
-            if (data.status == 'OK') {
+            if ('OK'.indexOf(data.status) !== -1) {
                 console.log('finish');
                 this.step3status = 'The task is running';
             }

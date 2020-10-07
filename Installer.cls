@@ -4,7 +4,7 @@ Class App.Installer
 XData setup
 {
 <Manifest>
-  <Default Name="SourceDir" Value="#{$system.Process.CurrentDirectory()}src"/>
+  <Default Name="SourceDir" Value="/opt/irisapp/src"/>
   <Default Name="Namespace" Value="IRISAPP"/>
   <Default Name="app" Value="irisapp" />
 
@@ -14,8 +14,6 @@ XData setup
       <Database Name="${Namespace}" Dir="/opt/${app}/data" Create="yes" Resource="%DB_${Namespace}"/>
     </Configuration>
     <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
-    <CSPApplication Url="/restoreui-rest" EventClass="bondar.restoreUI.Rest" MatchRoles=":%DB_${Namespace}" AuthenticationMethods="32"/>
-    <CSPApplication Url="/restoreui" EventClass="bondar.restoreUI.Rest" Directory="${cspdir}${app}"  ServeFiles="1" Recurse="1" MatchRoles=":%DB_${Namespace}" AuthenticationMethods="32"/>
   </Namespace>
 
 </Manifest>

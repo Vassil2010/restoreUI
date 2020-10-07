@@ -1,6 +1,6 @@
 {
-  "name": "primeng-quickstart-cli",
-  "version": "1.0.0-SNAPSHOT",
+  "name": "restoreui",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -31,15 +31,16 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.0",
+    "@angular-devkit/build-angular": "~0.1001.4",
     "@angular/cli": "^10.0.0",
     "@angular/compiler-cli": "~10.0.1",
     "@angular/language-service": "^10.0.0",
+    "tslib": "^1.9.0",
     "@angular/cdk": "~9.2.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
-    "codelyzer": "^5.1.2",
+    "codelyzer": "^6.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.2",
     "karma": "~5.1.1",
@@ -50,6 +51,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.9.5"
+    "typescript": "~3.9.5",
+    "@ngtools/webpack": "~10.1.4"
   }
 }

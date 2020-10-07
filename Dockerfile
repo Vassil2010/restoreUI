@@ -12,10 +12,8 @@ RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
 USER ${ISC_PACKAGE_MGRUSER}
 
 COPY  Installer.cls .
-COPY  src src
-
-# copy web files
-COPY  front/dist csp  
+COPY  src src 
+COPY  front/dist/. web 
 
 COPY iris.script /tmp/iris.script
 

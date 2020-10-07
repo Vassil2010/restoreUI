@@ -5,8 +5,10 @@ UI for restoring databases from online backup
 
 ### install using zpm
 
+```
 USER> zpm
 zpm: USER>install restoreui
+```
 
 ### install using docker
 

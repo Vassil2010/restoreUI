@@ -12,7 +12,11 @@
         "service": "iris",
         "internalPort": 52773
       },
-      "active": true
+      "active": true,
+      "links": {
+        "Restore DB from online backup": "http://localhost:${port}/restoreUI/index.html"
+        
+    }
     },
     "sqltools.connections": [
       {

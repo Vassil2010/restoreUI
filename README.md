@@ -35,4 +35,4 @@ http://localhost:52773/restoreui/index.html
 
 ## Demo
 
-![Demo](/misc/demo.gif)
+![Demo](https://github.com/Vassil2010/restoreUI/raw/master/misc/demo.gif)

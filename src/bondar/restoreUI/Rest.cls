@@ -57,9 +57,10 @@ ClassMethod DoRestore() As %Status
 		Write error.%ToJSON()
 		Quit $$$OK
 	}
-	
+    set tempDir = ^%SYS("TempDir")
+    	
     set ptemp=##class(%Stream.FileCharacter).%New()
-    set ptemp.Filename="/usr/irissys/mgr/Backup/RestoreList.txt"
+    set ptemp.Filename=tempDir_"/RestoreList.txt"
     set iter = obj.restoreDirectoryList.%GetIterator()
     while iter.%GetNext(.key, .value) { 
         Do ptemp.WriteLine(value.sourceDir_","_value.targetDir_","_$select(+value.createDir:"Y",1:"N"))
@@ -70,7 +71,7 @@ ClassMethod DoRestore() As %Status
 
     set ns = $Namespace
     set $Namespace = "%SYS"
-    job EXTSELCT^DBREST(1,0,obj.sourceDir,"/usr/irissys/mgr/Backup/RestoreList.txt",4,"","")
+    job EXTSELCT^DBREST(1,0,obj.sourceDir,tempDir_"/RestoreList.txt",4,"","")
     set $Namespace = ns
 
     set result = {}

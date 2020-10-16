@@ -12,7 +12,6 @@
         Url="/restoreUI"
         DeployPath="${cspdir}/restoreUI"
         SourcePath="/front/dist"
-        Directory="/restoreUI" 
         ServeFiles="1"
         Recurse="1"
         CookiePath="/restoreUI"
@@ -25,9 +24,7 @@
 
        <CSPApplication 
         Url="/restoreui-rest"
-        Path="/src/csp"
         Recurse="1"
-        Directory="${cspdir}/restoreui-rest" 
         MatchRoles=":%All"
         PasswordAuthEnabled="1"
         UnauthenticatedEnabled="0"

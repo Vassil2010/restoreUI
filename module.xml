@@ -6,7 +6,7 @@
       <Version>1.0.4</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Directory="cls" Name="bondar.PKG"/>
+      <Resource Directory="cls" Name="bondar.restoreUI.PKG"/>
       <Description>UI for restoring databases from online backup</Description>
 
        <CSPApplication
